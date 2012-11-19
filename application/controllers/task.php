@@ -26,6 +26,11 @@ class Task extends CI_Controller
 
     public function id($task_id = "")
     {
+        if ($this->agent->is_mobile()) {
+            $data["is_mobile"] = true;
+        }else{
+            $data["is_mobile"] = false;
+        }
         $data["task_id"] = $task_id;
         if ($task_id) {
             $result_device = "pc";
@@ -46,7 +51,9 @@ class Task extends CI_Controller
                 }
             }
         }
+        $this->load->view('header', $data);
         $this->load->view('task', $data);
+        $this->load->view('footer', $data);
     }
     public function submit($task_id = "")
     {

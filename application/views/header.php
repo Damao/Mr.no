@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN"<?php if($is_mobile){echo ' class="is_mobile"';}?>>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mr. NO</title>
+    <link rel="stylesheet" href="/f2e/style.css">
+	<script type="text/javascript" src="/f2e/jquery.js"></script>
+	<script type="text/javascript" src="/f2e/fileuploader.min.js"></script>
+</head>
+<body>
+<header class="lay_header">
+	<div class="lay_page_width">
+		<h1 class="logo">Mr.NO</h1>
+		<div class="lesd">ecd 生活电商</div>
+	</div>
+</header>
+<div class="lay_page_container">
+	<div class="lay_page_width">

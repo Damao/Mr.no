@@ -19,7 +19,14 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('home');
+        if ($this->agent->is_mobile()) {
+            $data["is_mobile"] = true;
+        }else{
+            $data["is_mobile"] = false;
+        }
+		$this->load->view('header', $data);
+		$this->load->view('home', $data);
+		$this->load->view('footer', $data);
 	}
 }
 

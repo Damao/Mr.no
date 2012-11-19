@@ -1,251 +1,98 @@
-﻿/*-------------------------
-	Simple reset
---------------------------*/
-
-
-
-*{
-    margin:0;
-    padding:0;
-}
-
-
-
-/*-------------------------
-	General Styles
---------------------------*/
-
-
-
-html{
-    min-height:100%;
-    position:relative;
-
-}
-
-body{
-    color:#fff;
-    min-height:600px;
-    font:14px/1.3 'Segoe UI',Arial, sans-serif;
-}
-
-a, a:visited {
-    text-decoration:none;
-    outline:none;
-    color:#54a6de;
-}
-
-a:hover{
-    text-decoration:underline;
-}
-
-header, footer{
-    display:block;
-}
-
-
-
-/*-------------------------
-	Header Styles
---------------------------*/
-
-
-
-header{
-    padding:75px;
-    position: relative;
-}
-
-header:before,
-#dropbox:before{
-    display: block;
-    content:'';
-    height:4px;
-    width:100%;
-    position: absolute;
-    top:0;
-    left:0;
-    box-shadow:0 2px 2px rgba(0,0,0,0.4);
-}
-
-
-h1{
-    background:url('../img/logo.jpg') no-repeat top center;
-    height:92px;
-    overflow: hidden;
-    text-indent: -99999px;
-    text-align: center;
-}
-
-
-
-/*-------------------------
-	Dropbox Element
---------------------------*/
-
-
-
-#dropbox{
-
-    border-radius:3px;
-    position: relative;
-    margin:80px auto 90px;
-    min-height: 290px;
-    overflow: hidden;
-    padding-bottom: 40px;
-    width: 990px;
-
-    box-shadow:0 0 4px rgba(0,0,0,0.3) inset,0 -3px 2px rgba(0,0,0,0.1);
-}
-
-
-#dropbox .message{
-    font-size: 11px;
-    text-align: center;
-    padding-top:160px;
-    display: block;
-}
-
-#dropbox .message i{
-    color:#ccc;
-    font-size:10px;
-}
-
-#dropbox:before{
-    border-radius:3px 3px 0 0;
-}
-
-
-
-/*-------------------------
-	Image Previews
---------------------------*/
-
-
-
-#dropbox .preview{
-    width:245px;
-    height: 215px;
-    float:left;
-    margin: 55px 0 0 60px;
-    position: relative;
-    text-align: center;
-}
-
-#dropbox .preview img{
-    max-width: 240px;
-    max-height:180px;
-    border:3px solid #fff;
-    display: block;
-
-    box-shadow:0 0 2px #000;
-    -webkit-box-shadow:0 0 2px #000;
-    -moz-box-shadow:0 0 2px #000;
-}
-
-#dropbox .imageHolder{
-    display: inline-block;
-    position:relative;
-}
-
-#dropbox .uploaded{
-    position: absolute;
-    top:0;
-    left:0;
-    height:100%;
-    width:100%;
-    background: url('../img/done.png') no-repeat center center rgba(255,255,255,0.5);
-    display: none;
-}
-
-#dropbox .preview.done .uploaded{
-    display: block;
-}
-
-
-
-/*-------------------------
-	Progress Bars
---------------------------*/
-
-
-
-#dropbox .progressHolder{
-    position: absolute;
-    background-color:#252f38;
-    height:12px;
-    width:100%;
-    left:0;
-    bottom: 0;
-
-    box-shadow:0 0 2px #000;
-    -webkit-box-shadow:0 0 2px #000;
-    -moz-box-shadow:0 0 2px #000;
-}
-
-#dropbox .progress{
-    background-color:#2586d0;
-    position: absolute;
-    height:100%;
-    left:0;
-    width:0;
-
-    box-shadow: 0 0 1px rgba(255, 255, 255, 0.4) inset;
-    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.4) inset;
-    -moz-box-shadow: 0 0 1px rgba(255, 255, 255, 0.4) inset;
-
-    -moz-transition:0.25s;
-    -webkit-transition:0.25s;
-    -o-transition:0.25s;
-    transition:0.25s;
-}
-
-#dropbox .preview.done .progress{
-    width:100% !important;
-}
-
-
-
-/*----------------------------
-	The Footer
------------------------------*/
-
-
-
-footer{
-    display:block;
-    background-color: #151517;
-    box-shadow: 0 -1px 2px #171717;
-    position:fixed;
-    width:100%;
-    height:70px;
-    bottom:0;
-    left:0;
-    z-index: 100000;
-}
-
-footer h2{
-    font-size:20px;
-    font-weight:normal;
-    left:50%;
-    margin-left:-400px;
-    padding:22px 0;
-    position:absolute;
-    width: 540px;
-    color:#eee;
-}
-
-footer a.tzine,a.tzine:visited{
-    background:url("../img/tzine.png") no-repeat right top;
-    border:none;
-    text-decoration:none;
-    color:#FCFCFC;
-    font-size:12px;
-    height:70px;
-    left:50%;
-    line-height:31px;
-    margin:23px 0 0 110px;
-    position:absolute;
-    top:0;
-    width:290px;
-}
+﻿@import url(init.css);
+@import url(fileuploader.css);
+
+
+/*pages*/
+
+body{background:#D1E4EF url(img/bg.png);}
+.lay_page_width{width:1000px;position: relative;margin:0 auto;}
+
+.lay_header{height:80px;padding-top:20px;margin-bottom: 100px;
+	background-color: #5995ba;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#5995ba), to(#3f81a9)); /* Safari 4+, Chrome */
+	background-image: -webkit-linear-gradient(top, #5995ba, #3f81a9); /* Chrome 10+, Safari 5.1+, iOS 5+ */
+	background-image: -moz-linear-gradient(top, #5995ba, #3f81a9); /* Firefox 3.6-15 */
+	background-image: -o-linear-gradient(top, #5995ba, #3f81a9); /* Opera 11.10-12.00 */
+	background-image: linear-gradient(to bottom, #5995ba, #3f81a9); /* Firefox 16+, IE10, Opera 12.50+ */
+	}
+.lay_header .logo{background:url("img/logo.png");margin-left:10px;width:158px;height:67px;line-height: 99;overflow:hidden;margin-right: 300px;float:left;}
+.lay_header .lesd{background:url("img/lesd.png");width:176px;height:59px;line-height: 99;overflow:hidden;}
+
+.qb_fl{float:left;}
+.qb_tac{text-align:center}
+.qb_tar{text-align:right}
+.qb_mr10{margin-right:10px;}
+.qb_mb10{margin-bottom:10px;}
+.qb_textarea{border:3px solid #C8C8C8;border-radius:10px;width: 100%;min-height: 100px;}
+.qb_input{border:3px solid #C8C8C8;border-radius:10px;width: 100%;height:50px;line-height:50px}
+.qb_clearfix{overflow:hidden;}
+.qb_btn{display:inline-block;min-width:160px;padding:0 10px;height:50px;line-height:50px;text-align:center;font-size:20px;background-color: #FF6565;background-image: -webkit-gradient(linear, left top, left bottom, from(#FF6565), to(#ED3F3F));background-image: -webkit-linear-gradient(top, #FF6565, #ED3F3F);background-image: linear-gradient(to bottom, #FF6565, #ED3F3F);border:1px solid #A9949B;border-radius:5px;color:#FFF;letter-spacing:2px}
+
+
+.mod_phone{border:3px solid #898989;background:#F2F2F2;padding:6px;width:356px;border-radius:25px;position:relative;}
+.mod_phone:after{content: ""; position: absolute; left: 50%; bottom: 12px; border-radius: 50px; height: 40px; margin-left: -20px; width: 40px; border: 2px solid #ADADAD;}
+.mod_phone .phone_border{background:#FFF;padding:20px 18px 62px;border-radius:25px}
+.mod_phone .phone_screen{background:#5F5F5F;}
+.mod_phone .unit{background:rgba(216,0,0,.5);width:44px;border-radius:44px;height:44px;position:absolute;margin-left:-22px;margin-top:-22px;}
+
+.mod_box{width:500px;padding:15px;margin-bottom:20px;border:3px solid #E0E0E0;border-radius: 25px;background:#F3F3F3 url(img/bg_light.png);box-shadow: 3px 3px 5px #7791A2;}
+.mod_box .title{font-size:18px;margin-bottom:10px;}
+
+.page_home .fn_uploader{background:url("img/box_uploader.png");width:743px;height:346px;margin:0 auto;}
+.page_config{display:none;}
+.page_config .fn_phone{margin-right:40px;}
+.page_config .fn_directive{position:relative;}
+.page_config .fn_directive .demo{border:2px solid #A9A9A9;background:#D9D9D9;padding-top:13px;position:relative}
+.page_config .fn_directive .demo:before{content:"";position:absolute;left:5px;top:35px;background:#D9D9D9;height:10px;width:50px;}
+.page_config .fn_directive .demo:after{content:"";position:absolute;left:5px;top:20px;background:#D9D9D9;height:10px;width:65px;}
+.page_config .fn_directive .demo .d1{background:#FFF;height:120px;width:92px;}
+.page_config .fn_directive .demo .d1:before{content:"";position:absolute;left:5px;top:50px;background:#D9D9D9;height:10px;width:80px;}
+.page_config .fn_directive .demo .d1:after{content:"";position:absolute;left:5px;top:80px;background:#DBC1C1;height:35px;width:70px;border:3px solid #D80000;border-radius:3px}
+.page_config .fn_directive .demo .d2{background:#FFF;height:120px;width:92px;}
+.page_config .fn_directive .marks{position: absolute; left: 120px; top: 142px;font-weight:bold;}
+.page_config .fn_submit{width:515px;float:left;text-align:right}
+.page_task_summary{display:none;}
+.page_task_summary .fn_task_summary{width: 500px; height: 346px; margin: 150px auto;text-align:center;}
+.page_task_summary .fn_task_summary h2{font-size:25px;}
+.page_task_summary .fn_task_summary h3{font-size:18px;margin-bottom:40px;}
+.page_task_summary .fn_task_summary .link{text-align:left;margin-bottom:35px;}
+.page_task_summary .fn_task_summary .qr{float: left; margin-top: 20px;}
+
+
+.page_task_directive .fn_task_directive{background:url(img/box_start.png);width:746px;height:466px;margin:0 auto;position:relative;}
+.page_task_directive .fn_task_directive .directive{color: white; position: absolute; left: 250px; top: 158px; font-size: 35px;}
+.page_task_directive .fn_task_directive .qb_btn{position: absolute; position: absolute; left: 426px; top: 254px; }
+.page_task_phone{margin:0 auto;width:380px;display:none;}
+.page_task_done{display:none;}
+.page_task_done .fn_task_done{background:url(img/box_done.png);width:788px;height:536px;margin:0 auto;position:absolute;}
+.page_task_done .fn_task_done .qb_btn{position: absolute; left: 233px; top: 314px;}
+.page_task_done .fn_task_done .result{position: absolute; left: 306px; height: 32px; width: 50px; top: 213px;}
+.page_task_done_mobile{display:none;text-align: center;font-size:16px;}
+
+.page_result .fn_phone{margin-right:40px;}
+.page_result .mod_box{font-size:28px;}
+.page_result #countdown{border-bottom:2px solid #367CA7;}
+.page_result .fn_summary{text-align:center;}
+.page_result .fn_summary .data li{float:left;width:33%;}
+
+
+
+#fn_canvas {width: 320px; height: 480px;overflow:hidden;position: relative; }
+#fn_canvas img { width: 320px; }
+#do_task_area { background: rgba(255, 255, 255, .2); outline: 1px dashed #FFF; width: 100px; height: 100px; position: absolute; left: 0; top: 0; }
+#do_move { width: 100%; height: 100%; cursor: move }
+#do_resize { background: rgba(255, 255, 255, .8); width: 20px; height: 20px; border-radius: 20px; position: absolute; right: -10px; bottom: -10px; cursor: nw-resize }
+.page_result #do_resize {cursor:default}
+#fn_canvas.scrollbar { width: 342px; overflow-y: auto; overflow-x:hidden;}
+
+.is_mobile .lay_page_width{width:320px;}
+.is_mobile .lay_header{height:40px;padding-top:10px;margin-bottom: 20px;}
+.is_mobile .lay_header .logo{margin-left:10px;margin-right:100px;-webkit-background-size:100%;width:79px;height:33px;}
+.is_mobile .lay_header .lesd{-webkit-background-size:100%;width:88px;height:30px;}
+.is_mobile .page_task_directive .fn_task_directive{-webkit-background-size: 478px auto; width: 320px; height: 300px; background-position: -60px 0;}
+.is_mobile .page_task_directive .fn_task_directive .directive{left: 92px; top: 103px; font-size: 21px;}
+.is_mobile .page_task_directive .fn_task_directive .qb_btn{left: 69px; top: 284px;}
+.is_mobile .mod_phone,
+.is_mobile .mod_phone .phone_border{border:none;width:320px;padding:0;}
+.is_mobile .mod_phone:after{display: none;}
+.is_mobile .page_task_phone{position: absolute; top: -70px; left: 0; width: 100%;background: rgba(255, 255, 255, .6);}

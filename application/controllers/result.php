@@ -26,6 +26,11 @@ class Result extends CI_Controller
 
     public function id($task_id = "")
     {
+        if ($this->agent->is_mobile()) {
+            $data["is_mobile"] = true;
+        }else{
+            $data["is_mobile"] = false;
+        }
         $data["task_id"] = $task_id;
         if ($task_id) {
             $result_device = "pc";
@@ -42,14 +47,13 @@ class Result extends CI_Controller
         if ($query_task->num_rows() > 0) {
             foreach ($query_task->result() as $row) {
                 $data['task_timestamp'] = $row->task_timestamp;
-                $data['task_timestamp'] = $row->task_timestamp;
                 $data['file_type'] = $row->file_type;
                 $data['task_area'] = $row->task_area;
                 $data['task_directive'] = $row->task_directive;
             }
         }
+        $result_count = 0;
         if ($query_result->num_rows() > 0) {
-            $result_count = 0;
             $result_all_stay_time = 0;
             $result_all_area = array();
             $result_all_device = array();
@@ -62,12 +66,20 @@ class Result extends CI_Controller
                 $result_all_stay_time += $row->result_stay_time;
             }
             $data["response"]=$result_count;
-            $data["avg_stay_time"]=$result_all_stay_time/$result_count;
-            $data["avg_success"]=$result_all_success/$result_count;
-            $data["result_all_area"]=$result_all_area;
-            $data["result_all_device"]=$result_all_device;
+            $data["avg_stay_time"]=round($result_all_stay_time/$result_count/1000,2);
+            $data["avg_success"]=round($result_all_success/$result_count,2);
+            $data["result_all_area"]=json_encode($result_all_area);
+            $data["result_all_device"]=json_encode($result_all_device);
         }
-        $this->load->view('result', $data);
+        if($result_count!=0){
+            $this->load->view('header', $data);
+            $this->load->view('result', $data);
+            $this->load->view('footer', $data);
+        }else{
+            $this->load->view('header', $data);
+            $this->load->view('result_no', $data);
+            $this->load->view('footer', $data);
+        }
     }
 
     public function submit($task_id = "")
