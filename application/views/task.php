@@ -25,7 +25,7 @@
 
 <div class="page_task_done">
     <div class="fn_task_done">
-        <a href="http://localhost/index.php/result/id/<?php echo $task_id ?>" class="result" title="查看结果"></a>
+        <a href="http://mrno.ooxx.me/result/id/<?php echo $task_id ?>" class="result" title="查看结果"></a>
         <a href="/" class="qb_btn">创建你自己的测试</a>
     </div>
 </div>
@@ -82,9 +82,13 @@ echo $result_device . "<br>";
         $(".page_task_phone").slideDown();
         then = new Date();
     });
-    $('#fn_canvas').click(function (e) {
+    $('#fn_canvas').bind("click.virgin",function (e) {
         var result_area_x = e.clientX - $(this).offset().left;
         var result_area_y = e.clientY - $(this).offset().top;
+        $('<div class="unit"></div>').css({
+            left:result_area_x,
+            top:result_area_y
+        }).appendTo("#fn_canvas");
         if ((result_area_x >= task_area.x && result_area_x <= (task_area.x + task_area.w)) && (result_area_y >= task_area.y && result_area_y <= (task_area.y + task_area.h))) {
             $('#result_success').val("1");
         } else {
@@ -94,6 +98,7 @@ echo $result_device . "<br>";
         now = new Date();
         $("#result_stay_time").val(now.getTime() - then.getTime());
         $('#form_task').submit();
+        $('#fn_canvas').unbind("click.virgin");/*避免多次点击*/
     });
 
 

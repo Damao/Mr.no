@@ -54,7 +54,7 @@
         </div>
         <div class="next">
             <a href="#" class="qb_btn qb_mr10" id="result_link">查看结果</a>
-            <a href="http://localhost/index.php/task/id/" id="test_link_a">预览我的测试</a>
+            <a href="http://mrno.ooxx.me/task/id/" id="test_link_a">预览我的测试</a>
         </div>
     </div>
 </div>
@@ -75,6 +75,10 @@ function createUploader() {
             enableTooltip:true
         },
         uploadButtonText:"来一发",
+        onSubmit: function(id, fileName){
+            $(".page_home").slideUp();
+            $(".page_config").slideDown();
+        },
         onComplete:function (id, fileName, responseJSON) {
             if (responseJSON.success) {
                 var responseIMG = new Image();
@@ -85,14 +89,13 @@ function createUploader() {
                     if ($("#uploaded").height() > 480) {
                         $('#fn_canvas').addClass("scrollbar");
                     }
+                    $('#do_task_area').fadeIn();
                 };
-                $(".page_home").slideUp();
-                $(".page_config").slideDown();
                 $("#task_id").val(responseJSON.task_id);
-                $("#link").append('<img class="qr" src="http://chart.apis.google.com/chart?cht=qr&chld=|0&choe=UTF-8&chs=128x128&chl=URL%3Ahttp%3A%2F%2Flocalhost%2Findex.php%2Ftask%2Fid%2F'+ responseJSON.task_id+'">');
-                $("#test_link_input").val('http://localhost/index.php/task/id/' + responseJSON.task_id);
-                $("#test_link_a").attr('href', 'http://localhost/index.php/task/id/' + responseJSON.task_id);
-                $("#result_link").attr('href', 'http://localhost/index.php/result/id/' + responseJSON.task_id);
+                $("#link").append('<img class="qr" src="http://chart.apis.google.com/chart?cht=qr&chld=|0&choe=UTF-8&chs=128x128&chl=http%3A%2F%2Fmrno.ooxx.me%2Ftask%2Fid%2F'+ responseJSON.task_id+'">');
+                $("#test_link_input").val('http://mrno.ooxx.me/task/id/' + responseJSON.task_id);
+                $("#test_link_a").attr('href', 'http://mrno.ooxx.me/task/id/' + responseJSON.task_id);
+                $("#result_link").attr('href', 'http://mrno.ooxx.me/result/id/' + responseJSON.task_id);
             }
         }
     });

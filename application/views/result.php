@@ -2,8 +2,7 @@
     <div class="fn_phone mod_phone qb_fl">
         <div class="phone_border">
             <div class="phone_screen" id="fn_canvas">
-                <img src="/uploads/<?php echo $task_id . '.' . $file_type; ?>" alt="">
-
+                <img style="opacity:.3" src="/uploads/<?php echo $task_id . '.' . $file_type; ?>" alt="">
                 <div id="do_task_area">
                     <div id="do_resize"></div>
                 </div>
@@ -32,7 +31,7 @@
 
         <div class="directive"><?php echo $task_directive; ?></div>
         <div class="task qb_tar">
-            <a href="http://localhost/index.php/task/id/<?php echo $task_id ?>" class="qb_btn">预览测试</a></div>
+            <a href="http://mrno.ooxx.me/task/id/<?php echo $task_id ?>" class="qb_btn">预览测试</a></div>
     </div>
 </div><!-- .page_config -->
 
@@ -51,6 +50,9 @@ var_dump($result_all_device) . "<br></pre>";
 ?>
 <script type="text/javascript">
     var create_time = +new Date("<?php echo $task_timestamp ?>");
+    var current_time = +new Date("<?php echo $current_timestamp ?>");
+    var count_down = parseInt((172800000 - (current_time - create_time))/1000);
+
     function secondToDate(second) {
         if (!second) {
             return 0;
@@ -74,11 +76,8 @@ var_dump($result_all_device) . "<br></pre>";
         return time;
     }
     function countdown() {
-        current_time = +new Date();
-        count_down = parseInt((172800000 - (current_time - create_time))/1000);
-        console.log(count_down);
         /*48小时倒计时 todo 溢出处理*/
-        $("#countdown").text(secondToDate(count_down));
+        $("#countdown").text(secondToDate(count_down-=1));
     }
     setInterval(countdown, 1000);
     var task_area =<?php echo $task_area ?>;
@@ -99,5 +98,5 @@ var_dump($result_all_device) . "<br></pre>";
             left:_tmp.x
         }).appendTo("#fn_canvas");
     }
-
+    $('#do_task_area').fadeIn();
 </script>

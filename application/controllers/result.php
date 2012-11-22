@@ -71,6 +71,7 @@ class Result extends CI_Controller
             $data["result_all_area"]=json_encode($result_all_area);
             $data["result_all_device"]=json_encode($result_all_device);
         }
+        $data["current_timestamp"]=date("Y-m-d H:i:s");
         if($result_count!=0){
             $this->load->view('header', $data);
             $this->load->view('result', $data);
